@@ -6,11 +6,14 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health = $HealthComponent
 @onready var health_bar: ProgressBar = $HealthBar
+@export var attack_damage: int = 10
+
 
 var last_direction: String = "down"
 
+var enemies_in_range: Array[Node2D] = []
+
 func _ready():
-	
 	health.died.connect(_on_died)
 	health.health_changed.connect(_on_health_changed)
 	health_bar.max_value = health.max_health
@@ -28,6 +31,9 @@ func _physics_process(delta: float) -> void:
 		"ui_up",
         "ui_down"
 	)
+	
+	if Input.is_action_just_pressed("attack"):
+		attack()
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		health.take_damage(10)
@@ -53,6 +59,26 @@ func _physics_process(delta: float) -> void:
 
 	animated_sprite.play(last_direction)
 	
-	
+ 
 func _on_died():
 	print("DEAD")
+
+
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemies"):
+		enemies_in_range.append(body)
+
+func _on_attack_area_body_exited(body: Node2D) -> void:
+	if body.is_in_group("enemies"):
+		enemies_in_range.erase(body)
+
+
+func attack() -> void:
+	if enemies_in_range.is_empty():
+		return
+
+	var enemy = enemies_in_range[0]
+
+	if is_instance_valid(enemy):
+		if enemy.has_method("take_damage"):
+			enemy.take_damage(10)
