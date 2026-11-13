@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://br8axu31uibaa"]
+
+[ext_resource type="Texture2D" uid="uid://bu2qo6ruj6p4b" path="res://sprites/weapons/05_energy_sword.png" id="1_40non"]
+[ext_resource type="Script" uid="uid://cjjomux4pfmd1" path="res://scenes/sword.gd" id="1_n355p"]
+
+[node name="Sword" type="Node2D" unique_id=1899253714]
+script = ExtResource("1_n355p")
+
+[node name="sword" type="Sprite2D" parent="." unique_id=1322232507]
+position = Vector2(4.7683716e-07, 4.7683716e-07)
+scale = Vector2(0.565, 0.565)
+texture = ExtResource("1_40non")
+offset = Vector2(16.735, 0)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2029574909]
+zoom = Vector2(2.52, 2.52)

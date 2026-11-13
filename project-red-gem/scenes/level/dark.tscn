@@ -124,8 +124,10 @@ tile_set = SubResource("TileSet_3qdwu")
 position = Vector2(574, 134)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=674771333]
+visible = false
 scale = Vector2(2.375, 2.375)
 texture = SubResource("GradientTexture2D_0cnue")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1516921600]
+visible = false
 color = Color(0, 0, 0, 1)
