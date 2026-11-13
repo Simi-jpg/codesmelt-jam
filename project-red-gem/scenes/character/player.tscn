@@ -114,6 +114,23 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_1mg7i"]
 radius = 8.246211
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bnvp8"]
+light_mode = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0vjlc"]
+bg_color = Color(0.5477186, 8.4228816e-07, 4.3317675e-07, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bnvp8"]
+bg_color = Color(0.22262317, 0.7176034, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
 [node name="Player" type="CharacterBody2D" unique_id=424066194]
 script = ExtResource("1_tum32")
 
@@ -132,3 +149,14 @@ shape = SubResource("CircleShape2D_1mg7i")
 [node name="HealthComponent" type="Node" parent="." unique_id=1091324873]
 script = ExtResource("3_0vjlc")
 metadata/_custom_type_script = "uid://blq850lrjhjdq"
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=2121689367]
+material = SubResource("CanvasItemMaterial_bnvp8")
+offset_left = -18.0
+offset_top = -30.0
+offset_right = 17.0
+offset_bottom = -25.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0vjlc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bnvp8")
+value = 18.32
+show_percentage = false
