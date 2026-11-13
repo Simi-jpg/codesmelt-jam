@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c3bq7020yhn6h"]
+
+[ext_resource type="Texture2D" uid="uid://bf2k0kcapxxmk" path="res://sprites/storage-equipment/maintenance_drone.png" id="1_ewsfm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1mg7i"]
+size = Vector2(26, 16)
+
+[node name="storage drone" type="AnimatableBody2D" unique_id=1091856691]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1972686035]
+texture = ExtResource("1_ewsfm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=835747996]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_1mg7i")

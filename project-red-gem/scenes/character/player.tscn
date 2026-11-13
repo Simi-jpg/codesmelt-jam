@@ -131,7 +131,11 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0cnue"]
+radius = 32.01562
+
 [node name="Player" type="CharacterBody2D" unique_id=424066194]
+z_index = 5
 script = ExtResource("1_tum32")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2063649387]
@@ -157,3 +161,8 @@ theme_override_styles/background = SubResource("StyleBoxFlat_0vjlc")
 theme_override_styles/fill = SubResource("StyleBoxFlat_bnvp8")
 value = 18.32
 show_percentage = false
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=981830259]
+
+[node name="AttackCollision" type="CollisionShape2D" parent="AttackArea" unique_id=2140938529]
+shape = SubResource("CircleShape2D_0cnue")

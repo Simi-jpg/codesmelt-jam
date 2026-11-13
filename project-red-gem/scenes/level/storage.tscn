@@ -3,6 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://iq44r7inac43" path="res://tilesets/orbital_oupost_tileset.png" id="1_ogqii"]
 [ext_resource type="PackedScene" uid="uid://bkn3q84g6m28" path="res://scenes/character/player.tscn" id="2_6drnj"]
 [ext_resource type="Texture2D" uid="uid://kgypcsbm27yr" path="res://sprites/storage-equipment/cargo_crate.png" id="3_n3e2p"]
+[ext_resource type="Texture2D" uid="uid://bpfhpmgtwsgx" path="res://sprites/storage-equipment/workbench.png" id="4_guom5"]
+[ext_resource type="Texture2D" uid="uid://djsnfxsx23kdy" path="res://sprites/storage-equipment/supply_cart.png" id="5_rvyju"]
+[ext_resource type="Texture2D" uid="uid://c3or4hrhjuv32" path="res://sprites/storage-equipment/reactor_console.png" id="6_7chfe"]
+[ext_resource type="Texture2D" uid="uid://cmoxr8jg8xv4i" path="res://sprites/storage-equipment/medical_cabinet.png" id="9_25hc3"]
+[ext_resource type="PackedScene" uid="uid://c3bq7020yhn6h" path="res://scenes/character/storage_drone.tscn" id="9_kchth"]
+[ext_resource type="Texture2D" uid="uid://c301om4uaji7u" path="res://sprites/storage-equipment/floor_vent.png" id="10_7chfe"]
+[ext_resource type="Texture2D" uid="uid://cmn5bqrcfjjl2" path="res://sprites/storage-equipment/hydroponic_planter.png" id="11_vue4j"]
+[ext_resource type="Texture2D" uid="uid://dbnlr7ww76mkn" path="res://sprites/storage-equipment/cable_reel.png" id="12_tmnxd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6drnj"]
 texture = ExtResource("1_ogqii")
@@ -171,6 +179,44 @@ texture = ExtResource("1_ogqii")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_6drnj")
 
+[sub_resource type="Animation" id="Animation_kchth"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(573, 351)]
+}
+
+[sub_resource type="Animation" id="Animation_55p4f"]
+resource_name = "move"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(573, 351), Vector2(1073, 351)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rvyju"]
+_data = {
+&"RESET": SubResource("Animation_kchth"),
+&"move": SubResource("Animation_55p4f")
+}
+
 [node name="Storage" type="Node2D" unique_id=2047696409]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1293906252]
@@ -181,11 +227,64 @@ tile_set = SubResource("TileSet_1mg7i")
 position = Vector2(217, 159)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=377260197]
+zoom = Vector2(1.5, 1.5)
 limit_left = 0
 limit_top = -5
 limit_right = 1150
 limit_bottom = 650
 
 [node name="CargoCrate" type="Sprite2D" parent="." unique_id=85480206]
-position = Vector2(211, 245)
+position = Vector2(57.5, 479.5)
+scale = Vector2(1.40625, 1.28125)
 texture = ExtResource("3_n3e2p")
+
+[node name="Workbench" type="Sprite2D" parent="." unique_id=400871943]
+position = Vector2(67.125, 29.000004)
+scale = Vector2(1.1796875, 1.3749998)
+texture = ExtResource("4_guom5")
+
+[node name="SupplyCart" type="Sprite2D" parent="." unique_id=978850938]
+position = Vector2(433, 19.999998)
+scale = Vector2(1.5820328, 1.5585938)
+texture = ExtResource("5_rvyju")
+
+[node name="ReactorConsole" type="Sprite2D" parent="." unique_id=578337479]
+position = Vector2(424.75003, 472.375)
+scale = Vector2(1.8593764, 1.4140626)
+texture = ExtResource("6_7chfe")
+
+[node name="MedicalCabinet" type="Sprite2D" parent="." unique_id=1574240463]
+position = Vector2(1096, 39.000023)
+scale = Vector2(1.5156249, 1.25)
+texture = ExtResource("9_25hc3")
+
+[node name="HydroponicPlanter" type="Sprite2D" parent="." unique_id=2014000618]
+position = Vector2(494, 47)
+scale = Vector2(1.1250002, 1.6875001)
+texture = ExtResource("11_vue4j")
+
+[node name="storage drone" parent="." unique_id=1091856691 instance=ExtResource("9_kchth")]
+position = Vector2(573, 351)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="storage drone" unique_id=1566454445]
+libraries/ = SubResource("AnimationLibrary_rvyju")
+autoplay = &"move"
+
+[node name="FloorVent" type="Sprite2D" parent="." unique_id=296157335]
+position = Vector2(1111, 375)
+rotation = 1.5707964
+scale = Vector2(2.0156267, 1.7265627)
+texture = ExtResource("10_7chfe")
+
+[node name="CargoCrate2" type="Sprite2D" parent="." unique_id=1805384188]
+position = Vector2(802, 304)
+texture = ExtResource("3_n3e2p")
+
+[node name="CableReel" type="Sprite2D" parent="." unique_id=860730445]
+position = Vector2(877, 142)
+texture = ExtResource("12_tmnxd")
+
+[node name="FloorVent2" type="Sprite2D" parent="." unique_id=1545348276]
+position = Vector2(958.5, 504.49997)
+scale = Vector2(2.71875, 1.9062483)
+texture = ExtResource("10_7chfe")
