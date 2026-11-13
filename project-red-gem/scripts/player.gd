@@ -10,10 +10,16 @@ extends CharacterBody2D
 var last_direction: String = "down"
 
 func _ready():
+	
 	health.died.connect(_on_died)
+	health.health_changed.connect(_on_health_changed)
 	health_bar.max_value = health.max_health
 	health_bar.value = health.current_health
 
+func _on_health_changed(current_health: int, max_health: int) -> void:
+	health_bar.max_value = max_health
+	health_bar.value = current_health
+	
 	
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector(

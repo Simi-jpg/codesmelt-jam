@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cmoxr8jg8xv4i" path="res://sprites/storage-equipment/medical_cabinet.png" id="9_25hc3"]
 [ext_resource type="PackedScene" uid="uid://c3bq7020yhn6h" path="res://scenes/character/storage_drone.tscn" id="9_kchth"]
 [ext_resource type="Texture2D" uid="uid://c301om4uaji7u" path="res://sprites/storage-equipment/floor_vent.png" id="10_7chfe"]
-[ext_resource type="Texture2D" uid="uid://bdn3xfypgggcw" path="res://sprites/storage-equipment/cryopod.png" id="11_hbcu1"]
 [ext_resource type="Texture2D" uid="uid://cmn5bqrcfjjl2" path="res://sprites/storage-equipment/hydroponic_planter.png" id="11_vue4j"]
 [ext_resource type="Texture2D" uid="uid://dbnlr7ww76mkn" path="res://sprites/storage-equipment/cable_reel.png" id="12_tmnxd"]
 
@@ -276,11 +275,6 @@ position = Vector2(1111, 375)
 rotation = 1.5707964
 scale = Vector2(2.0156267, 1.7265627)
 texture = ExtResource("10_7chfe")
-
-[node name="Cryopod" type="Sprite2D" parent="." unique_id=582887124]
-position = Vector2(745, 497)
-scale = Vector2(10.4375, 6)
-texture = ExtResource("11_hbcu1")
 
 [node name="CargoCrate2" type="Sprite2D" parent="." unique_id=1805384188]
 position = Vector2(802, 304)
