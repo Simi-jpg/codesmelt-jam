@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://cqbe0fh0bw1st"]
+
+[ext_resource type="Texture2D" uid="uid://7yid0oh7oqe3" path="res://sprites/door-4f.png" id="1_fp7ob"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3oj3j"]
+atlas = ExtResource("1_fp7ob")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bt7k"]
+atlas = ExtResource("1_fp7ob")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cu5l"]
+atlas = ExtResource("1_fp7ob")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw15g"]
+atlas = ExtResource("1_fp7ob")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1c5v"]
+atlas = ExtResource("1_fp7ob")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo30d"]
+atlas = ExtResource("1_fp7ob")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rax31"]
+atlas = ExtResource("1_fp7ob")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dprsq"]
+atlas = ExtResource("1_fp7ob")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w78j2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3oj3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bt7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cu5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hw15g")
+}],
+"loop": 1,
+"name": &"door_close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1c5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo30d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rax31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dprsq")
+}],
+"loop": 1,
+"name": &"door_open",
+"speed": 5.0
+}]
+
+[node name="Door" type="Node2D" unique_id=1635349051]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1723337565]
+sprite_frames = SubResource("SpriteFrames_w78j2")
+animation = &"door_close"
+frame_progress = 0.92626065
+speed_scale = 0.5
