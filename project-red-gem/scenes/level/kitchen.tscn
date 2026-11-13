@@ -4,6 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://ktakeyo8avfq" path="res://tilesets/cozy-space-interiors-tileset.png" id="2_5f6wb"]
 [ext_resource type="Texture2D" uid="uid://iq44r7inac43" path="res://tilesets/orbital_oupost_tileset.png" id="2_gn54h"]
 [ext_resource type="PackedScene" uid="uid://cqbe0fh0bw1st" path="res://scenes/character/door.tscn" id="3_5f6wb"]
+[ext_resource type="PackedScene" uid="uid://cvwp2imupsuw7" path="res://scenes/character/fridge.tscn" id="4_sd537"]
+[ext_resource type="Texture2D" uid="uid://bsh4r2822i2tu" path="res://sprites/kitchen-furniture/chest drawer.png" id="6_550ae"]
+[ext_resource type="Texture2D" uid="uid://bpxpwkjhp8435" path="res://sprites/kitchen-furniture/counter.png" id="7_rxn7h"]
+[ext_resource type="Texture2D" uid="uid://dy8e6werqpcx6" path="res://sprites/kitchen-furniture/table.png" id="8_nggrk"]
+[ext_resource type="Texture2D" uid="uid://dluohrgncjxh3" path="res://sprites/kitchen-furniture/painting.png" id="9_vynyg"]
+[ext_resource type="Texture2D" uid="uid://ckqx72jevseou" path="res://sprites/kitchen-furniture/side chair.png" id="10_avktc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gn54h"]
 texture = ExtResource("2_5f6wb")
@@ -354,5 +360,60 @@ tile_set = SubResource("TileSet_4e4lh")
 [node name="Door" parent="." unique_id=1635349051 instance=ExtResource("3_5f6wb")]
 position = Vector2(497, 16)
 
+[node name="Fridge" parent="." unique_id=2093346318 instance=ExtResource("4_sd537")]
+position = Vector2(70.00001, 68.00001)
+rotation = -0.0041737547
+scale = Vector2(2.11278, 1.2940855)
+
 [node name="Player" parent="." unique_id=424066194 instance=ExtResource("1_fn8xh")]
-position = Vector2(501, 64)
+position = Vector2(496, 92)
+
+[node name="ChestDrawer" type="Sprite2D" parent="." unique_id=802236687]
+position = Vector2(929.5, 69)
+scale = Vector2(3.1874983, 2.625)
+texture = ExtResource("6_550ae")
+
+[node name="ChestDrawer2" type="Sprite2D" parent="." unique_id=19842269]
+position = Vector2(1084, 70)
+scale = Vector2(3.796864, 2.765625)
+texture = ExtResource("6_550ae")
+
+[node name="Counter" type="Sprite2D" parent="." unique_id=1606548446]
+position = Vector2(52.000004, 313)
+rotation = -1.5709448
+scale = Vector2(3.602459, 2.0134437)
+texture = ExtResource("7_rxn7h")
+
+[node name="Table" type="Sprite2D" parent="." unique_id=65947813]
+position = Vector2(133, 192)
+scale = Vector2(2.3125, 2.2666667)
+texture = ExtResource("8_nggrk")
+
+[node name="Painting" type="Sprite2D" parent="." unique_id=986031284]
+position = Vector2(996, 16)
+scale = Vector2(2.1875, 0.81250006)
+texture = ExtResource("9_vynyg")
+
+[node name="SideChair" type="Sprite2D" parent="." unique_id=1239602205]
+position = Vector2(101.25, 177.875)
+scale = Vector2(2.250001, 1.865384)
+texture = ExtResource("10_avktc")
+
+[node name="SideChair2" type="Sprite2D" parent="." unique_id=331115621]
+position = Vector2(100.25001, 209.375)
+scale = Vector2(2.2500005, 1.9423089)
+texture = ExtResource("10_avktc")
+
+[node name="SideChair3" type="Sprite2D" parent="." unique_id=1028590710]
+position = Vector2(165.99998, 177.99998)
+rotation = -0.008988149
+scale = Vector2(2.2500005, 1.9423089)
+texture = ExtResource("10_avktc")
+flip_h = true
+
+[node name="SideChair4" type="Sprite2D" parent="." unique_id=963694239]
+position = Vector2(166, 210)
+rotation = -0.008988149
+scale = Vector2(2.2500005, 1.9423089)
+texture = ExtResource("10_avktc")
+flip_h = true

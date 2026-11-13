@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cvwp2imupsuw7"]
+
+[ext_resource type="Texture2D" uid="uid://qhu5fd0rt2jf" path="res://sprites/kitchen-furniture/Slice 337.png" id="1_w42qo"]
+[ext_resource type="Texture2D" uid="uid://v3vpsn3drwqn" path="res://sprites/kitchen-furniture/Slice 338.png" id="2_ynolf"]
+[ext_resource type="Texture2D" uid="uid://dv1wg30jl5vq1" path="res://sprites/kitchen-furniture/Slice 339.png" id="3_muspf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20cn8"]
+atlas = ExtResource("1_w42qo")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyd52"]
+atlas = ExtResource("2_ynolf")
+region = Rect2(0, 0, 29, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu60g"]
+atlas = ExtResource("3_muspf")
+region = Rect2(0, 0, 29, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w78j2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20cn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyd52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gu60g")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Fridge" type="Node2D" unique_id=2093346318]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1660611422]
+sprite_frames = SubResource("SpriteFrames_w78j2")
+speed_scale = 0.5
