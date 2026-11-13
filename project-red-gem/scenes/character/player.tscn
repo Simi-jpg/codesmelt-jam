@@ -132,6 +132,7 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [node name="Player" type="CharacterBody2D" unique_id=424066194]
+z_index = 5
 script = ExtResource("1_tum32")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2063649387]
