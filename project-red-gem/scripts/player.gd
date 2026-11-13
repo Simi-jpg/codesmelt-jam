@@ -4,9 +4,13 @@ extends CharacterBody2D
 @export var speed: float = 150.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var health = $HealthComponent
 
 var last_direction: String = "down"
 
+func _ready():
+	health.died.connect(_on_died)
+	
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector(
 		"ui_left",
@@ -34,3 +38,7 @@ func _physics_process(delta: float) -> void:
 			last_direction = "up"
 
 	animated_sprite.play(last_direction)
+	
+	
+func _on_died():
+	print("DEAD")

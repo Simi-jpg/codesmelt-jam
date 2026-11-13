@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://iq44r7inac43" path="res://tilesets/orbital_oupost_tileset.png" id="1_v6lnm"]
 [ext_resource type="PackedScene" uid="uid://bkn3q84g6m28" path="res://scenes/character/player.tscn" id="2_rij2t"]
+[ext_resource type="PackedScene" uid="uid://bmfarogbqch1t" path="res://scenes/character/glowy-alien.tscn" id="3_rij2t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6y26k"]
 texture = ExtResource("1_v6lnm")
@@ -131,3 +132,6 @@ texture = SubResource("GradientTexture2D_0cnue")
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1516921600]
 visible = false
 color = Color(0, 0, 0, 1)
+
+[node name="GlowyAlien" parent="." unique_id=506719437 instance=ExtResource("3_rij2t")]
+position = Vector2(516, 225)
