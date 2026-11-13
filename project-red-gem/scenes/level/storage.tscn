@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://iq44r7inac43" path="res://tilesets/orbital_oupost_tileset.png" id="1_ogqii"]
 [ext_resource type="PackedScene" uid="uid://bkn3q84g6m28" path="res://scenes/character/player.tscn" id="2_6drnj"]
+[ext_resource type="Texture2D" uid="uid://kgypcsbm27yr" path="res://sprites/storage-equipment/cargo_crate.png" id="3_n3e2p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6drnj"]
 texture = ExtResource("1_ogqii")
@@ -178,3 +179,13 @@ tile_set = SubResource("TileSet_1mg7i")
 
 [node name="Player" parent="." unique_id=424066194 instance=ExtResource("2_6drnj")]
 position = Vector2(217, 159)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=377260197]
+limit_left = 0
+limit_top = -5
+limit_right = 1150
+limit_bottom = 650
+
+[node name="CargoCrate" type="Sprite2D" parent="." unique_id=85480206]
+position = Vector2(211, 245)
+texture = ExtResource("3_n3e2p")

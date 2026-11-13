@@ -140,9 +140,6 @@ sprite_frames = SubResource("SpriteFrames_1mg7i")
 animation = &"right"
 frame_progress = 0.7886415
 
-[node name="Camera2D" type="Camera2D" parent="AnimatedSprite2D" unique_id=856810781]
-position = Vector2(0, 2)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=312236378]
 shape = SubResource("CircleShape2D_1mg7i")
 
