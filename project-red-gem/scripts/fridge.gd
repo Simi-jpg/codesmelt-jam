@@ -4,6 +4,9 @@ signal key_collected_signal
 
 @onready var fridge_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var key: Sprite2D = $Key
+@onready var message = $Message_Key
+@onready var message2 = $Message_Key2
+
 
 var key_available = false
 var key_collected = false
@@ -19,31 +22,37 @@ func _ready():
 
 func _process(delta):
 	if player_near and Input.is_action_just_pressed("interact"):
-		if not opened:
-			fridge_sprite.play("fridge_open")
-			opened = true
-			await get_tree().create_timer(1.0).timeout
-			key.visible = true
-			key_available = true
+			if not opened:
+				fridge_sprite.play("fridge_open")
+				opened = true
+				await get_tree().create_timer(1.0).timeout
+				key.visible = true
+				key_available = true
 
-			key.position.y += 20
+				key.position.y += 20
 
-			var tween = create_tween()
-			tween.tween_property(key, "position:y", key.position.y + 30, 0.5)
+				var tween = create_tween()
+				tween.tween_property(key, "position:y", key.position.y + 30, 0.5)
 	if key_available and not key_collected and Input.is_key_pressed(KEY_R):
-		key_collected = true
-		key_available = false
-		key.visible = false
-		print("KEY COLLECTED!")
-		key_collected_signal.emit()
+			key_collected = true
+			key_available = false
+			key.visible = false
+			print("KEY COLLECTED!")
+			key_collected_signal.emit()
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
 		player_near = true
-
+		message.show_message("", "Press Enter to open fridge")
 func _on_area_2d_body_exited(body):
 	if body.name == "Player":
 		player_near = false
+		message.hide()
 		if opened:
+			message2.show_message("", "Press R to collect key", 10)
 			fridge_sprite.play("fridge_close")
+			
+			
 			opened = false
+			
+			

@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://5ep6ufax20fy" path="res://sprites/kitchen-furniture/drinks.png" id="11_550ae"]
 [ext_resource type="Texture2D" uid="uid://daqxu13ge70mr" path="res://sprites/kitchen-furniture/couch.png" id="12_rxn7h"]
 [ext_resource type="Texture2D" uid="uid://dovejbj65drtv" path="res://sprites/kitchen-furniture/key_big.png" id="12_vynyg"]
+[ext_resource type="PackedScene" uid="uid://c4f5i507gof4d" path="res://scenes/items/message.tscn" id="18_fp2bs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gn54h"]
 texture = ExtResource("2_5f6wb")
@@ -379,6 +380,9 @@ size = Vector2(37, 62)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4hrg"]
 size = Vector2(50, 109)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1m3c"]
+size = Vector2(64.957016, 77.036255)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_j7v7n"]
 radius = 125.035995
 
@@ -523,10 +527,48 @@ position = Vector2(514, 16)
 position = Vector2(147, 623.99994)
 rotation = 3.142695
 
+[node name="Area2D" type="Area2D" parent="ExitDoor" unique_id=1891833187]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor/Area2D" unique_id=912596053]
+position = Vector2(-0.4476471, 28.518127)
+shape = SubResource("RectangleShape2D_y1m3c")
+
 [node name="Fridge" parent="." unique_id=2093346318 instance=ExtResource("4_sd537")]
 position = Vector2(1082, 469.00006)
 rotation = -0.0041737547
 scale = Vector2(2.11278, 1.2940855)
+
+[node name="Message_Key" parent="Fridge" unique_id=1939152418 instance=ExtResource("18_fp2bs")]
+offset = Vector2(-120, 400)
+transform = Transform2D(1, 0, 0, 1, -120, 400)
+
+[node name="PanelContainer" parent="Fridge/Message_Key" index="0" unique_id=2118652733]
+custom_minimum_size = Vector2(-1, 90)
+offset_left = 30.0
+offset_top = 6.000001
+offset_right = 394.0
+offset_bottom = 108.0
+scale = Vector2(0.64, 0.541469)
+
+[node name="MessageLabel" parent="Fridge/Message_Key/PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(1939152418, 1537453846) index="1" unique_id=1482852563]
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+
+[node name="Message_Key2" parent="Fridge" unique_id=1082204629 instance=ExtResource("18_fp2bs")]
+offset = Vector2(-120, 400)
+transform = Transform2D(1, 0, 0, 1, -120, 400)
+
+[node name="PanelContainer" parent="Fridge/Message_Key2" index="0" unique_id=2118652733]
+custom_minimum_size = Vector2(-1, 90)
+offset_left = 31.0
+offset_top = 71.0
+offset_right = 395.0
+offset_bottom = 173.0
+scale = Vector2(0.64, 0.541469)
+
+[node name="MessageLabel" parent="Fridge/Message_Key2/PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(1082204629, 1537453846) index="1" unique_id=1482852563]
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
 
 [node name="Key" type="Sprite2D" parent="Fridge" unique_id=305525798]
 visible = false
@@ -583,7 +625,19 @@ position = Vector2(996, 16)
 scale = Vector2(2.1875, 0.81250006)
 texture = ExtResource("9_vynyg")
 
+[node name="Message" parent="." unique_id=1304700228 instance=ExtResource("18_fp2bs")]
+offset = Vector2(-120, 400)
+transform = Transform2D(1, 0, 0, 1, -120, 400)
+
+[node name="PanelContainer" parent="Message" index="0" unique_id=2118652733]
+offset_left = -52.0
+offset_right = 312.0
+offset_bottom = 102.0
+
 [editable path="potion"]
+[editable path="Fridge/Message_Key"]
+[editable path="Fridge/Message_Key2"]
 [editable path="GlowyAlien2"]
 [editable path="GlowyAlien3"]
 [editable path="aliens"]
+[editable path="Message"]

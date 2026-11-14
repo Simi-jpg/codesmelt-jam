@@ -3,13 +3,40 @@
 [ext_resource type="Script" uid="uid://dtwik4iqdx4hj" path="res://scripts/storage_quest.gd" id="1_d506k"]
 [ext_resource type="Texture2D" uid="uid://ciko3s4ckigc3" path="res://sprites/storage-equipment/terminal_scan_0.png" id="1_fy5jp"]
 [ext_resource type="Texture2D" uid="uid://dg44qece5ilgi" path="res://sprites/storage-equipment/terminal_scan_1.png" id="2_d506k"]
+[ext_resource type="Texture2D" uid="uid://qhu5fd0rt2jf" path="res://sprites/kitchen-furniture/Slice 337.png" id="2_ylw3v"]
 [ext_resource type="Texture2D" uid="uid://l1l5fyckh0wg" path="res://sprites/storage-equipment/terminal_scan_2.png" id="3_3v48f"]
 [ext_resource type="Texture2D" uid="uid://c3or4hrhjuv32" path="res://sprites/storage-equipment/reactor_console.png" id="3_g0gog"]
+[ext_resource type="Texture2D" uid="uid://v3vpsn3drwqn" path="res://sprites/kitchen-furniture/Slice 338.png" id="3_s8ves"]
 [ext_resource type="Texture2D" uid="uid://o8afs3yn0dat" path="res://sprites/storage-equipment/reactor_pulse_0.png" id="4_1w1k7"]
 [ext_resource type="Texture2D" uid="uid://ri8xvg4qrkfo" path="res://sprites/storage-equipment/terminal_scan_3.png" id="4_aw4e5"]
+[ext_resource type="Texture2D" uid="uid://dv1wg30jl5vq1" path="res://sprites/kitchen-furniture/Slice 339.png" id="4_cyefu"]
 [ext_resource type="Texture2D" uid="uid://da7yey6y6rqvg" path="res://sprites/storage-equipment/reactor_pulse_1.png" id="5_b5ms7"]
 [ext_resource type="Texture2D" uid="uid://bl4aoe3f308th" path="res://sprites/storage-equipment/reactor_pulse_2.png" id="6_ylw3v"]
 [ext_resource type="Texture2D" uid="uid://dc5iq610d76fy" path="res://sprites/storage-equipment/reactor_pulse_3.png" id="7_s8ves"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylw3v"]
+atlas = ExtResource("4_cyefu")
+region = Rect2(0, 0, 29, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8ves"]
+atlas = ExtResource("3_s8ves")
+region = Rect2(0, 0, 29, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yx0jf"]
+atlas = ExtResource("2_ylw3v")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo7ge"]
+atlas = ExtResource("2_ylw3v")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bo1d"]
+atlas = ExtResource("3_s8ves")
+region = Rect2(0, 0, 29, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbckj"]
+atlas = ExtResource("4_cyefu")
+region = Rect2(0, 0, 29, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j48d4"]
 atlas = ExtResource("1_fy5jp")
@@ -53,6 +80,34 @@ region = Rect2(4, 6, 24, 22)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xkxdr"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylw3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8ves")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yx0jf")
+}],
+"loop": 0,
+"name": &"fridge_offline",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo7ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bo1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbckj")
+}],
+"loop": 0,
+"name": &"fridge_repair",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j48d4")
@@ -113,7 +168,7 @@ script = ExtResource("1_d506k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1207171981]
 sprite_frames = SubResource("SpriteFrames_xkxdr")
-animation = &"offline"
+animation = &"fridge_repair"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=887683729]
 shape = SubResource("RectangleShape2D_s8ves")
@@ -126,4 +181,4 @@ offset_right = 74.0
 offset_bottom = -9.0
 theme_override_colors/font_color = Color(0.03529412, 0.90588236, 0.043137256, 1)
 theme_override_font_sizes/font_size = 9
-text = "Press R to repair"
+text = "Press R to collect key"
