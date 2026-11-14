@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c4f5i507gof4d" path="res://scenes/items/message.tscn" id="5_uofqj"]
 [ext_resource type="Texture2D" uid="uid://c3or4hrhjuv32" path="res://sprites/storage-equipment/reactor_console.png" id="6_7chfe"]
 [ext_resource type="PackedScene" uid="uid://sssf7byg35cy" path="res://scenes/items/StorageQuest.tscn" id="6_uofqj"]
+[ext_resource type="PackedScene" uid="uid://bmfarogbqch1t" path="res://scenes/character/glowy-alien.tscn" id="8_vue4j"]
 [ext_resource type="Texture2D" uid="uid://cmoxr8jg8xv4i" path="res://sprites/storage-equipment/medical_cabinet.png" id="9_25hc3"]
 [ext_resource type="PackedScene" uid="uid://c3bq7020yhn6h" path="res://scenes/character/storage_drone.tscn" id="9_kchth"]
 [ext_resource type="Texture2D" uid="uid://c301om4uaji7u" path="res://sprites/storage-equipment/floor_vent.png" id="10_7chfe"]
@@ -256,17 +257,34 @@ position = Vector2(421, 194)
 offline_animation = &"reactor_offline"
 repair_animation = &"reactor_repair"
 
-[node name="PotionSpawner" parent="." unique_id=1311857829 instance=ExtResource("12_7chfe")]
+[node name="AlienSpawner" parent="." unique_id=1311857829 instance=ExtResource("12_7chfe")]
+position = Vector2(686, 349)
+spawn_scene = ExtResource("8_vue4j")
+spawn_interval = 10.0
+max_active = 6
+spawn_on_start = true
+
+[node name="Marker2D" parent="AlienSpawner/SpawnPoints" parent_id_path=PackedInt32Array(1311857829, 2106555087) index="0" unique_id=1825563346]
+position = Vector2(273, 76)
+
+[node name="Marker2D2" parent="AlienSpawner/SpawnPoints" parent_id_path=PackedInt32Array(1311857829, 2106555087) index="1" unique_id=1579598227]
+position = Vector2(286, -158)
+
+[node name="Marker2D3" parent="AlienSpawner/SpawnPoints" parent_id_path=PackedInt32Array(1311857829, 2106555087) index="2" unique_id=817947077]
+position = Vector2(-378, 44)
+
+[node name="PotionSpawner" parent="." unique_id=533450961 instance=ExtResource("12_7chfe")]
 position = Vector2(604, 444)
 spawn_scene = ExtResource("13_hbcu1")
+spawn_interval = 15.0
 
-[node name="Marker2D" parent="PotionSpawner/SpawnPoints" parent_id_path=PackedInt32Array(1311857829, 2106555087) index="0" unique_id=1825563346]
+[node name="Marker2D" parent="PotionSpawner/SpawnPoints" parent_id_path=PackedInt32Array(533450961, 2106555087) index="0" unique_id=1825563346]
 position = Vector2(491, 142)
 
-[node name="Marker2D2" parent="PotionSpawner/SpawnPoints" parent_id_path=PackedInt32Array(1311857829, 2106555087) index="1" unique_id=1579598227]
+[node name="Marker2D2" parent="PotionSpawner/SpawnPoints" parent_id_path=PackedInt32Array(533450961, 2106555087) index="1" unique_id=1579598227]
 position = Vector2(-71, -295)
 
-[node name="Marker2D3" parent="PotionSpawner/SpawnPoints" parent_id_path=PackedInt32Array(1311857829, 2106555087) index="2" unique_id=817947077]
+[node name="Marker2D3" parent="PotionSpawner/SpawnPoints" parent_id_path=PackedInt32Array(533450961, 2106555087) index="2" unique_id=817947077]
 position = Vector2(100, -288)
 
 [node name="CargoCrate" type="Sprite2D" parent="." unique_id=85480206]
@@ -318,4 +336,14 @@ position = Vector2(958.5, 504.49997)
 scale = Vector2(2.71875, 1.9062483)
 texture = ExtResource("10_7chfe")
 
+[node name="GlowyAlien" parent="." unique_id=506719437 instance=ExtResource("8_vue4j")]
+position = Vector2(855, 483)
+
+[node name="GlowyAlien2" parent="." unique_id=2054785069 instance=ExtResource("8_vue4j")]
+position = Vector2(553, 269)
+
+[node name="GlowyAlien3" parent="." unique_id=1215878708 instance=ExtResource("8_vue4j")]
+position = Vector2(219, 396)
+
+[editable path="AlienSpawner"]
 [editable path="PotionSpawner"]
