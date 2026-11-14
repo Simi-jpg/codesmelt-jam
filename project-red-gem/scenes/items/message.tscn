@@ -10,9 +10,10 @@ custom_minimum_size = Vector2(350, 90)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 280.0
-offset_bottom = 100.0
+offset_left = -145.0
+offset_top = 147.0
+offset_right = 415.0
+offset_bottom = 354.0
 grow_horizontal = 2
 mouse_filter = 2
 
@@ -20,10 +21,21 @@ mouse_filter = 2
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="TitleLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=875455115]
-layout_mode = 2
+[node name="TitleLabel" type="Label" parent="." unique_id=875455115]
+offset_left = 430.0
+offset_top = 177.0
+offset_right = 990.0
+offset_bottom = 223.0
 theme_override_colors/font_color = Color(1, 0.5411765, 0.12156863, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
-[node name="MessageLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1482852563]
-layout_mode = 2
+[node name="MessageLabel" type="Label" parent="." unique_id=1482852563]
+offset_left = 437.0
+offset_top = 253.0
+offset_right = 997.0
+offset_bottom = 354.0
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
