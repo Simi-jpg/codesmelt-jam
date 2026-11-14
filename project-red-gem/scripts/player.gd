@@ -2,7 +2,6 @@
 extends CharacterBody2D
 
 @export var speed: float = 150.0
-@onready var swing_sound: AudioStreamPlayer2D = $Pivot/Swing/Sword/SwingSound
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health = $HealthComponent
@@ -68,7 +67,6 @@ func _physics_process(delta: float) -> void:
 	
  
 func _on_died():
-	Global.reset_points()
 	get_tree().reload_current_scene()
 
 
@@ -83,7 +81,6 @@ func attack() -> void:
 		return
 	attack_area.monitoring = true
 	attacking = true
-	swing_sound.play()
 	sword.visible = true
 	var tween = create_tween()
 	

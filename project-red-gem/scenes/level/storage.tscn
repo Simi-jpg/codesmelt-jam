@@ -15,8 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://c301om4uaji7u" path="res://sprites/storage-equipment/floor_vent.png" id="10_7chfe"]
 [ext_resource type="Texture2D" uid="uid://cmn5bqrcfjjl2" path="res://sprites/storage-equipment/hydroponic_planter.png" id="11_vue4j"]
 [ext_resource type="PackedScene" uid="uid://b4m4lf27q2ug2" path="res://scenes/items/spawner.tscn" id="12_7chfe"]
+[ext_resource type="Texture2D" uid="uid://dbnlr7ww76mkn" path="res://sprites/storage-equipment/cable_reel.png" id="12_tmnxd"]
 [ext_resource type="PackedScene" uid="uid://bl7bb10uwxj3o" path="res://scenes/items/health-potion.tscn" id="13_hbcu1"]
-[ext_resource type="Texture2D" uid="uid://dovejbj65drtv" path="res://sprites/kitchen-furniture/key_big.png" id="17_vue4j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6drnj"]
 texture = ExtResource("1_ogqii")
@@ -223,40 +223,6 @@ _data = {
 &"move": SubResource("Animation_55p4f")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4amp"]
-size = Vector2(26, 18)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqry4"]
-size = Vector2(67.03125, 46)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dygm4"]
-size = Vector2(39.00003, 24.000002)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1mg7i"]
-size = Vector2(24.58278, 11.636367)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfwu3"]
-size = Vector2(43, 25)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkxdr"]
-size = Vector2(36.5, 21.75)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m74v4"]
-size = Vector2(26, 22)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpk1j"]
-size = Vector2(20, 16)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_1mg7i"]
-a = Vector2(493, 29)
-b = Vector2(494, 53)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uy6cm"]
-size = Vector2(24, 16.75)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4k6v"]
-size = Vector2(32, 22)
-
 [node name="Storage" type="Node2D" unique_id=2047696409]
 script = ExtResource("1_25hc3")
 
@@ -285,10 +251,6 @@ autoplay = &"move"
 
 [node name="SecurityTerminal" parent="." unique_id=1669482563 instance=ExtResource("6_uofqj")]
 position = Vector2(817, 199)
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="SecurityTerminal" unique_id=1145375830]
-position = Vector2(419, 194)
-shape = SubResource("RectangleShape2D_t4amp")
 
 [node name="ReactorPulse" parent="." unique_id=1687169660 instance=ExtResource("6_uofqj")]
 position = Vector2(421, 194)
@@ -325,105 +287,62 @@ position = Vector2(-71, -295)
 [node name="Marker2D3" parent="PotionSpawner/SpawnPoints" parent_id_path=PackedInt32Array(533450961, 2106555087) index="2" unique_id=817947077]
 position = Vector2(100, -288)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=349002203]
-
-[node name="KeyInteractionArea" type="Area2D" parent="StaticBody2D" unique_id=1939943077]
-position = Vector2(188, 551)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/KeyInteractionArea" unique_id=1924914003]
-position = Vector2(-125.484375, -66)
-shape = SubResource("RectangleShape2D_tqry4")
-
-[node name="CargoCrate" type="Sprite2D" parent="StaticBody2D" unique_id=85480206]
-position = Vector2(54.000008, 476.00006)
+[node name="CargoCrate" type="Sprite2D" parent="." unique_id=85480206]
+position = Vector2(57.5, 479.5)
 scale = Vector2(1.40625, 1.28125)
 texture = ExtResource("3_n3e2p")
 
-[node name="SupplyCart" type="Sprite2D" parent="StaticBody2D" unique_id=978850938]
-position = Vector2(433, 19.999998)
-scale = Vector2(1.5820328, 1.5585938)
-texture = ExtResource("5_rvyju")
-
-[node name="CollisionCart" type="CollisionShape2D" parent="StaticBody2D" unique_id=473182617]
-position = Vector2(434.5, 26.999998)
-scale = Vector2(0.9999999, 0.9999999)
-shape = SubResource("RectangleShape2D_dygm4")
-
-[node name="Workbench" type="Sprite2D" parent="StaticBody2D" unique_id=400871943]
+[node name="Workbench" type="Sprite2D" parent="." unique_id=400871943]
 position = Vector2(67.125, 29.000004)
 scale = Vector2(1.1796875, 1.3749998)
 texture = ExtResource("4_guom5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1998981350]
-position = Vector2(66.5, 33)
-scale = Vector2(1.1796875, 1.3749998)
-shape = SubResource("RectangleShape2D_1mg7i")
+[node name="SupplyCart" type="Sprite2D" parent="." unique_id=978850938]
+position = Vector2(433, 19.999998)
+scale = Vector2(1.5820328, 1.5585938)
+texture = ExtResource("5_rvyju")
 
-[node name="MedicalCabinet" type="Sprite2D" parent="StaticBody2D" unique_id=1574240463]
+[node name="ReactorConsole" type="Sprite2D" parent="." unique_id=578337479]
+position = Vector2(424.75003, 472.375)
+scale = Vector2(1.8593764, 1.4140626)
+texture = ExtResource("6_7chfe")
+
+[node name="MedicalCabinet" type="Sprite2D" parent="." unique_id=1574240463]
 position = Vector2(1096, 39.000023)
 scale = Vector2(1.5156249, 1.25)
 texture = ExtResource("9_25hc3")
 
-[node name="ReactorConsole" type="Sprite2D" parent="StaticBody2D" unique_id=578337479]
-position = Vector2(424.75003, 472.37503)
-scale = Vector2(1.8593764, 1.4140626)
-texture = ExtResource("6_7chfe")
-
-[node name="CollisionReactor" type="CollisionShape2D" parent="StaticBody2D" unique_id=505348613]
-position = Vector2(425.5, 473.5)
-shape = SubResource("RectangleShape2D_yfwu3")
-
-[node name="HydroponicPlanter" type="Sprite2D" parent="StaticBody2D" unique_id=2014000618]
+[node name="HydroponicPlanter" type="Sprite2D" parent="." unique_id=2014000618]
 position = Vector2(494, 47)
 scale = Vector2(1.1250002, 1.6875001)
 texture = ExtResource("11_vue4j")
 
-[node name="FloorVent" type="Sprite2D" parent="StaticBody2D" unique_id=296157335]
+[node name="FloorVent" type="Sprite2D" parent="." unique_id=296157335]
 position = Vector2(1111, 375)
 rotation = 1.5707964
 scale = Vector2(2.0156267, 1.7265627)
 texture = ExtResource("10_7chfe")
 
-[node name="CargoCrate2" type="Sprite2D" parent="StaticBody2D" unique_id=1805384188]
+[node name="CargoCrate2" type="Sprite2D" parent="." unique_id=1805384188]
 position = Vector2(802, 304)
 texture = ExtResource("3_n3e2p")
 
-[node name="FloorVent2" type="Sprite2D" parent="StaticBody2D" unique_id=1545348276]
-position = Vector2(507, 608)
+[node name="CableReel2" type="Sprite2D" parent="." unique_id=472676471]
+position = Vector2(705, 169)
+texture = ExtResource("12_tmnxd")
+
+[node name="CableReel3" type="Sprite2D" parent="." unique_id=173714205]
+position = Vector2(533, 167)
+texture = ExtResource("12_tmnxd")
+
+[node name="CableReel4" type="Sprite2D" parent="." unique_id=1020088120]
+position = Vector2(1097, 600)
+texture = ExtResource("12_tmnxd")
+
+[node name="FloorVent2" type="Sprite2D" parent="." unique_id=1545348276]
+position = Vector2(958.5, 504.49997)
 scale = Vector2(2.71875, 1.9062483)
 texture = ExtResource("10_7chfe")
-
-[node name="KeyBig" type="Sprite2D" parent="StaticBody2D" unique_id=217025757]
-position = Vector2(57, 478)
-scale = Vector2(0.78125, 0.6875)
-texture = ExtResource("17_vue4j")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2059246843]
-position = Vector2(57, 477)
-shape = SubResource("RectangleShape2D_xkxdr")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=574340682]
-position = Vector2(814, 197)
-shape = SubResource("RectangleShape2D_t4amp")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=597162678]
-position = Vector2(424, 194)
-shape = SubResource("RectangleShape2D_m74v4")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1092119484]
-position = Vector2(493, 61)
-shape = SubResource("RectangleShape2D_fpk1j")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1203046916]
-shape = SubResource("SegmentShape2D_1mg7i")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=760395291]
-position = Vector2(803, 306.375)
-shape = SubResource("RectangleShape2D_uy6cm")
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=1241011173]
-position = Vector2(1096, 39)
-shape = SubResource("RectangleShape2D_y4k6v")
 
 [node name="GlowyAlien" parent="." unique_id=506719437 instance=ExtResource("8_vue4j")]
 position = Vector2(855, 483)
@@ -433,9 +352,6 @@ position = Vector2(553, 269)
 
 [node name="GlowyAlien3" parent="." unique_id=1215878708 instance=ExtResource("8_vue4j")]
 position = Vector2(219, 396)
-
-[connection signal="body_entered" from="StaticBody2D/KeyInteractionArea" to="." method="_on_key_interaction_area_body_entered"]
-[connection signal="body_exited" from="StaticBody2D/KeyInteractionArea" to="." method="_on_key_interaction_area_body_exited"]
 
 [editable path="AlienSpawner"]
 [editable path="PotionSpawner"]

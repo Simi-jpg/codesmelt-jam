@@ -1,9 +1,6 @@
 extends CharacterBody2D
 
-
 @onready var player: CharacterBody2D = $"../Player"
-@onready var beam_sound: AudioStreamPlayer2D = $BeamSound
-
 @onready var health: HealthComponent = $HealthComponent
 @onready var health_bar: ProgressBar = $HealthBar
 @export var knockback_force: float = 250.0
@@ -78,8 +75,6 @@ func shoot():
 	get_tree().current_scene.call_deferred("add_child", projectile)
 	projectile.global_position = global_position
 	
-	beam_sound.play()
-	
 	# Ignore the enemy that shot it
 	projectile.add_collision_exception_with(self)
 	
@@ -87,9 +82,6 @@ func shoot():
 	projectile.direction = direction
 	await get_tree().create_timer(2.0).timeout
 	can_shoot = true
-	
-	
-	
 
 func _on_attack_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):

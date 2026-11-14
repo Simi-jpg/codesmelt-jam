@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dvhql71agmd5u" path="res://scripts/glowy_alien.gd" id="1_543gv"]
 [ext_resource type="Texture2D" uid="uid://blftoj46whjye" path="res://sprites/aliens/glowy.png" id="2_qwd3n"]
 [ext_resource type="Script" uid="uid://blq850lrjhjdq" path="res://scripts/health_component.gd" id="3_w5lni"]
-[ext_resource type="AudioStream" uid="uid://bu66yf1jj0hrr" path="res://sprites/audio/alien-beam.mp3" id="4_0ttpv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w5lni"]
 atlas = ExtResource("2_qwd3n")
@@ -142,10 +141,6 @@ metadata/_custom_type_script = "uid://blq850lrjhjdq"
 shape = SubResource("CircleShape2D_ce72v")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=240040924]
-
-[node name="BeamSound" type="AudioStreamPlayer2D" parent="." unique_id=259424190]
-stream = ExtResource("4_0ttpv")
-volume_db = 10.0
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
