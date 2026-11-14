@@ -299,7 +299,6 @@ texture = SubResource("GradientTexture2D_0cnue")
 zoom = Vector2(1.5, 1.5)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1516921600]
-visible = false
 color = Color(0.24115604, 0.24115604, 0.24115604, 1)
 
 [node name="GlowyAlien" parent="." unique_id=506719437 instance=ExtResource("3_rij2t")]

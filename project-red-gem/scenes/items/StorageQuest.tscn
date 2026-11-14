@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://sssf7byg35cy"]
+
+[ext_resource type="Script" uid="uid://dtwik4iqdx4hj" path="res://scripts/storage_quest.gd" id="1_d506k"]
+[ext_resource type="Texture2D" uid="uid://ciko3s4ckigc3" path="res://sprites/storage-equipment/terminal_scan_0.png" id="1_fy5jp"]
+[ext_resource type="Texture2D" uid="uid://dg44qece5ilgi" path="res://sprites/storage-equipment/terminal_scan_1.png" id="2_d506k"]
+[ext_resource type="Texture2D" uid="uid://l1l5fyckh0wg" path="res://sprites/storage-equipment/terminal_scan_2.png" id="3_3v48f"]
+[ext_resource type="Texture2D" uid="uid://c3or4hrhjuv32" path="res://sprites/storage-equipment/reactor_console.png" id="3_g0gog"]
+[ext_resource type="Texture2D" uid="uid://o8afs3yn0dat" path="res://sprites/storage-equipment/reactor_pulse_0.png" id="4_1w1k7"]
+[ext_resource type="Texture2D" uid="uid://ri8xvg4qrkfo" path="res://sprites/storage-equipment/terminal_scan_3.png" id="4_aw4e5"]
+[ext_resource type="Texture2D" uid="uid://da7yey6y6rqvg" path="res://sprites/storage-equipment/reactor_pulse_1.png" id="5_b5ms7"]
+[ext_resource type="Texture2D" uid="uid://bl4aoe3f308th" path="res://sprites/storage-equipment/reactor_pulse_2.png" id="6_ylw3v"]
+[ext_resource type="Texture2D" uid="uid://dc5iq610d76fy" path="res://sprites/storage-equipment/reactor_pulse_3.png" id="7_s8ves"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j48d4"]
+atlas = ExtResource("1_fy5jp")
+region = Rect2(4, 6, 24, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyefu"]
+atlas = ExtResource("3_g0gog")
+region = Rect2(4, 6, 24, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_diw28"]
+atlas = ExtResource("4_1w1k7")
+region = Rect2(5, 8, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlknj"]
+atlas = ExtResource("5_b5ms7")
+region = Rect2(5, 8, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tl3kp"]
+atlas = ExtResource("6_ylw3v")
+region = Rect2(5, 8, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd4ol"]
+atlas = ExtResource("7_s8ves")
+region = Rect2(5, 8, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol412"]
+atlas = ExtResource("1_fy5jp")
+region = Rect2(4, 6, 24, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0gog"]
+atlas = ExtResource("2_d506k")
+region = Rect2(4, 6, 24, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w1k7"]
+atlas = ExtResource("3_3v48f")
+region = Rect2(4, 6, 24, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5ms7"]
+atlas = ExtResource("4_aw4e5")
+region = Rect2(4, 6, 24, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xkxdr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j48d4")
+}],
+"loop": 0,
+"name": &"offline",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyefu")
+}],
+"loop": 0,
+"name": &"reactor_offline",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_diw28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlknj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tl3kp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd4ol")
+}],
+"loop": 0,
+"name": &"reactor_repair",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ol412")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0gog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w1k7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5ms7")
+}],
+"loop": 0,
+"name": &"repair",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8ves"]
+size = Vector2(25, 22)
+
+[node name="StorageQuest" type="Area2D" unique_id=1669482563]
+collision_layer = 0
+script = ExtResource("1_d506k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1207171981]
+sprite_frames = SubResource("SpriteFrames_xkxdr")
+animation = &"offline"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=887683729]
+shape = SubResource("RectangleShape2D_s8ves")
+
+[node name="Label" type="Label" parent="." unique_id=2011518392]
+visible = false
+offset_left = -52.0
+offset_top = -32.0
+offset_right = 74.0
+offset_bottom = -9.0
+theme_override_colors/font_color = Color(0.03529412, 0.90588236, 0.043137256, 1)
+theme_override_font_sizes/font_size = 9
+text = "Press R to repair"
