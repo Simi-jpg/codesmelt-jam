@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://1svp5tdrg8ci" path="res://scripts/player.gd" id="1_tum32"]
 [ext_resource type="Texture2D" uid="uid://bsfr3m68usbip" path="res://sprites/tiny-pilot.png" id="1_vt0b6"]
 [ext_resource type="Script" uid="uid://blq850lrjhjdq" path="res://scripts/health_component.gd" id="3_0vjlc"]
+[ext_resource type="Texture2D" uid="uid://bu2qo6ruj6p4b" path="res://sprites/weapons/05_energy_sword.png" id="3_1y732"]
+
+[sub_resource type="GDScript" id="GDScript_bnvp8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xub24"]
 atlas = ExtResource("1_vt0b6")
@@ -132,11 +135,20 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0cnue"]
-radius = 32.01562
+radius = 49.010204
 
 [node name="Player" type="CharacterBody2D" unique_id=424066194]
 z_index = 5
 script = ExtResource("1_tum32")
+
+[node name="Pivot" type="Node2D" parent="." unique_id=934615098]
+script = SubResource("GDScript_bnvp8")
+
+[node name="Swing" type="Node2D" parent="Pivot" unique_id=886109586]
+
+[node name="Sword" type="Sprite2D" parent="Pivot/Swing" unique_id=1407610935]
+position = Vector2(28, 0)
+texture = ExtResource("3_1y732")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2063649387]
 position = Vector2(-1, -3)

@@ -106,6 +106,7 @@ corner_radius_bottom_left = 2
 
 [node name="GlowyAlien" type="CharacterBody2D" unique_id=506719437 groups=["enemies"]]
 script = ExtResource("1_543gv")
+speed = 60.0
 
 [node name="Glowy" type="AnimatedSprite2D" parent="." unique_id=1330441569]
 sprite_frames = SubResource("SpriteFrames_0cnue")
