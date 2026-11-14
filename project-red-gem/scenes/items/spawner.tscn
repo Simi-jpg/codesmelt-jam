@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b4m4lf27q2ug2"]
+
+[ext_resource type="Script" uid="uid://0fb4ivsgwojj" path="res://scripts/spawner.gd" id="1_8ah7b"]
+
+[node name="Spawner" type="Node2D" unique_id=1311857829]
+script = ExtResource("1_8ah7b")
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=2106555087]
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPoints" unique_id=1825563346]
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnPoints" unique_id=1579598227]
+
+[node name="Marker2D3" type="Marker2D" parent="SpawnPoints" unique_id=817947077]
+
+[node name="Timer" type="Timer" parent="." unique_id=1719477487]

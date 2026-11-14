@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c4f5i507gof4d"]
+
+[ext_resource type="Script" uid="uid://650a0mffigpb" path="res://scripts/message.gd" id="1_2wsf5"]
+
+[node name="Message" type="CanvasLayer" unique_id=1082204629]
+script = ExtResource("1_2wsf5")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2118652733]
+custom_minimum_size = Vector2(350, 90)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 280.0
+offset_bottom = 100.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1537453846]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=875455115]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.5411765, 0.12156863, 1)
+
+[node name="MessageLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1482852563]
+layout_mode = 2
+autowrap_mode = 2

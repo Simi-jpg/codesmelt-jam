@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dvhql71agmd5u" path="res://scripts/glowy_alien.gd" id="1_543gv"]
 [ext_resource type="Texture2D" uid="uid://blftoj46whjye" path="res://sprites/aliens/glowy.png" id="2_qwd3n"]
+[ext_resource type="Script" uid="uid://blq850lrjhjdq" path="res://scripts/health_component.gd" id="3_w5lni"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w5lni"]
 atlas = ExtResource("2_qwd3n")
@@ -86,8 +87,29 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0cnue"]
 
-[node name="GlowyAlien" type="CharacterBody2D" unique_id=506719437]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qwd3n"]
+light_mode = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5lni"]
+bg_color = Color(0.5477186, 8.4228816e-07, 4.3317675e-07, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ttpv"]
+bg_color = Color(0.22262317, 0.7176034, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ce72v"]
+radius = 95.02105
+
+[node name="GlowyAlien" type="CharacterBody2D" unique_id=506719437 groups=["enemies"]]
 script = ExtResource("1_543gv")
+speed = 60.0
 
 [node name="Glowy" type="AnimatedSprite2D" parent="." unique_id=1330441569]
 sprite_frames = SubResource("SpriteFrames_0cnue")
@@ -97,3 +119,28 @@ frame_progress = 0.93311185
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=539394300]
 position = Vector2(0, 12)
 shape = SubResource("CircleShape2D_0cnue")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=158959103]
+material = SubResource("CanvasItemMaterial_qwd3n")
+offset_left = -18.0
+offset_top = -30.0
+offset_right = 17.0
+offset_bottom = -25.0
+theme_override_styles/background = SubResource("StyleBoxFlat_w5lni")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0ttpv")
+value = 18.32
+show_percentage = false
+
+[node name="HealthComponent" type="Node" parent="." unique_id=114413037]
+script = ExtResource("3_w5lni")
+metadata/_custom_type_script = "uid://blq850lrjhjdq"
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=176814914]
+
+[node name="AttackCollision" type="CollisionShape2D" parent="AttackArea" unique_id=562244832]
+shape = SubResource("CircleShape2D_ce72v")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=240040924]
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
