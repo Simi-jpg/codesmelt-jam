@@ -1,23 +1,38 @@
 [gd_scene format=3 uid="uid://cvwp2imupsuw7"]
 
 [ext_resource type="Texture2D" uid="uid://qhu5fd0rt2jf" path="res://sprites/kitchen-furniture/Slice 337.png" id="1_w42qo"]
+[ext_resource type="Script" uid="uid://cuaanjgeik6j2" path="res://scripts/fridge.gd" id="1_ynolf"]
 [ext_resource type="Texture2D" uid="uid://v3vpsn3drwqn" path="res://sprites/kitchen-furniture/Slice 338.png" id="2_ynolf"]
 [ext_resource type="Texture2D" uid="uid://dv1wg30jl5vq1" path="res://sprites/kitchen-furniture/Slice 339.png" id="3_muspf"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_20cn8"]
-atlas = ExtResource("1_w42qo")
-region = Rect2(0, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yyd52"]
-atlas = ExtResource("2_ynolf")
-region = Rect2(0, 0, 29, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gu60g"]
 atlas = ExtResource("3_muspf")
 region = Rect2(0, 0, 29, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyd52"]
+atlas = ExtResource("2_ynolf")
+region = Rect2(0, 0, 29, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20cn8"]
+atlas = ExtResource("1_w42qo")
+region = Rect2(0, 0, 16, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_w78j2"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gu60g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyd52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20cn8")
+}],
+"loop": 0,
+"name": &"fridge_close",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_20cn8")
@@ -28,27 +43,30 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gu60g")
 }],
-"loop": 1,
-"name": &"default",
+"loop": 0,
+"name": &"fridge_open",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w78j2"]
-size = Vector2(16, 31)
+size = Vector2(22, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynolf"]
 size = Vector2(37, 56)
 
 [node name="Fridge" type="Node2D" unique_id=2093346318]
+script = ExtResource("1_ynolf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1660611422]
 sprite_frames = SubResource("SpriteFrames_w78j2")
+animation = &"fridge_close"
+frame = 2
 speed_scale = 0.5
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=817588972]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1646712892]
-position = Vector2(0, -0.5)
+position = Vector2(2, -0.5)
 shape = SubResource("RectangleShape2D_w78j2")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1582697845]
@@ -56,3 +74,6 @@ shape = SubResource("RectangleShape2D_w78j2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1172831770]
 position = Vector2(-3.5, 11)
 shape = SubResource("RectangleShape2D_ynolf")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
