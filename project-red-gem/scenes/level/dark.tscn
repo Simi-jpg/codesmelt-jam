@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://iq44r7inac43" path="res://tilesets/orbital_oupost_tileset.png" id="1_v6lnm"]
 [ext_resource type="PackedScene" uid="uid://bkn3q84g6m28" path="res://scenes/character/player.tscn" id="2_rij2t"]
 [ext_resource type="PackedScene" uid="uid://bmfarogbqch1t" path="res://scenes/character/glowy-alien.tscn" id="3_rij2t"]
+[ext_resource type="Texture2D" uid="uid://chpolyjgk84x5" path="res://sprites/storage-equipment/server_rack.png" id="4_xhcmu"]
+[ext_resource type="Texture2D" uid="uid://kgypcsbm27yr" path="res://sprites/storage-equipment/cargo_crate.png" id="5_3sahv"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_adurc"]
 polygon = PackedVector2Array(-4, -8, 8, -8, 8, 8, -4, 8)
@@ -303,3 +305,30 @@ color = Color(0.24115604, 0.24115604, 0.24115604, 1)
 
 [node name="GlowyAlien" parent="." unique_id=506719437 instance=ExtResource("3_rij2t")]
 position = Vector2(50, 493)
+
+[node name="ServerRack" type="Sprite2D" parent="." unique_id=1235493884]
+position = Vector2(41, 218)
+texture = ExtResource("4_xhcmu")
+
+[node name="ServerRack2" type="Sprite2D" parent="." unique_id=874091947]
+position = Vector2(62, 218)
+texture = ExtResource("4_xhcmu")
+
+[node name="ServerRack3" type="Sprite2D" parent="." unique_id=1723363349]
+position = Vector2(83, 218)
+texture = ExtResource("4_xhcmu")
+
+[node name="ServerRack4" type="Sprite2D" parent="." unique_id=683782007]
+position = Vector2(104, 218)
+texture = ExtResource("4_xhcmu")
+
+[node name="CargoCrate" type="Sprite2D" parent="." unique_id=1026647170]
+position = Vector2(915, 164)
+texture = ExtResource("5_3sahv")
+
+[node name="PointLight2D" type="PointLight2D" parent="CargoCrate" unique_id=836714466]
+scale = Vector2(1.5937499, 1.5079329)
+color = Color(1, 0, 0.05490196, 1)
+energy = 0.7
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_0cnue")
