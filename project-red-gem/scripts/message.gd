@@ -2,14 +2,15 @@
 extends CanvasLayer
 
 @onready var panel: PanelContainer = $PanelContainer
-@onready var title_label: Label = $PanelContainer/VBoxContainer/TitleLabel
-@onready var message_label: Label = $PanelContainer/VBoxContainer/MessageLabel
+@onready var title_label: Label = $TitleLabel
+@onready var message_label: Label = $MessageLabel
 
 var message_id: int = 0
 
 
 func _ready() -> void:
 	panel.hide()
+	
 
 
 func show_message(
@@ -24,9 +25,14 @@ func show_message(
 	message_label.text = message
 
 	panel.show()
+	title_label.show()
+	message_label.show()
 
 	await get_tree().create_timer(duration).timeout
 
+	title_label.hide()
+	message_label.hide()
+	
 	# Prevent an older timer from hiding a newer message
 	if current_id == message_id:
 		panel.hide()

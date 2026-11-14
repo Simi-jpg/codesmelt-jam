@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bmfarogbqch1t" path="res://scenes/character/glowy-alien.tscn" id="3_rij2t"]
 [ext_resource type="Texture2D" uid="uid://chpolyjgk84x5" path="res://sprites/storage-equipment/server_rack.png" id="4_xhcmu"]
 [ext_resource type="Texture2D" uid="uid://kgypcsbm27yr" path="res://sprites/storage-equipment/cargo_crate.png" id="5_3sahv"]
+[ext_resource type="PackedScene" uid="uid://j42rx6eionsd" path="res://scenes/items/gem.tscn" id="6_3sahv"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_adurc"]
 polygon = PackedVector2Array(-4, -8, 8, -8, 8, 8, -4, 8)
@@ -329,13 +330,6 @@ texture = ExtResource("4_xhcmu")
 position = Vector2(915, 164)
 texture = ExtResource("5_3sahv")
 
-[node name="PointLight2D" type="PointLight2D" parent="CargoCrate" unique_id=836714466]
-scale = Vector2(1.5937499, 1.5079329)
-color = Color(1, 0, 0.05490196, 1)
-energy = 0.7
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_0cnue")
-
 [node name="GlowyAlien2" parent="." unique_id=588456047 instance=ExtResource("3_rij2t")]
 position = Vector2(673, 462)
 
@@ -356,6 +350,16 @@ position = Vector2(944, 412)
 
 [node name="AttackCollision" parent="GlowyAlien6/AttackArea" parent_id_path=PackedInt32Array(2083539910, 176814914) index="0" unique_id=562244832]
 shape = SubResource("CircleShape2D_xhcmu")
+
+[node name="Gem" parent="." unique_id=773076192 instance=ExtResource("6_3sahv")]
+position = Vector2(915, 139)
+
+[node name="PointLight2D" type="PointLight2D" parent="Gem" unique_id=836714466]
+scale = Vector2(1.5937499, 1.5079329)
+color = Color(1, 0, 0.05490196, 1)
+energy = 0.7
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_0cnue")
 
 [editable path="GlowyAlien5"]
 [editable path="GlowyAlien6"]
