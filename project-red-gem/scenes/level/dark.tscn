@@ -283,6 +283,9 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.859375, 0.13368055)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xhcmu"]
+radius = 186.31
+
 [node name="Dark" type="Node2D" unique_id=1742219981]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=731028297]
@@ -303,7 +306,7 @@ zoom = Vector2(1.5, 1.5)
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1516921600]
 color = Color(0.24115604, 0.24115604, 0.24115604, 1)
 
-[node name="GlowyAlien" parent="." unique_id=506719437 instance=ExtResource("3_rij2t")]
+[node name="GlowyAlien" parent="." unique_id=1182714898 instance=ExtResource("3_rij2t")]
 position = Vector2(50, 493)
 
 [node name="ServerRack" type="Sprite2D" parent="." unique_id=1235493884]
@@ -332,3 +335,27 @@ color = Color(1, 0, 0.05490196, 1)
 energy = 0.7
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_0cnue")
+
+[node name="GlowyAlien2" parent="." unique_id=588456047 instance=ExtResource("3_rij2t")]
+position = Vector2(673, 462)
+
+[node name="GlowyAlien3" parent="." unique_id=506719437 instance=ExtResource("3_rij2t")]
+position = Vector2(342, 85)
+
+[node name="GlowyAlien4" parent="." unique_id=1731691481 instance=ExtResource("3_rij2t")]
+position = Vector2(361, 473)
+
+[node name="GlowyAlien5" parent="." unique_id=1164690594 instance=ExtResource("3_rij2t")]
+position = Vector2(790, 60)
+
+[node name="AttackCollision" parent="GlowyAlien5/AttackArea" parent_id_path=PackedInt32Array(1164690594, 176814914) index="0" unique_id=562244832]
+shape = SubResource("CircleShape2D_xhcmu")
+
+[node name="GlowyAlien6" parent="." unique_id=2083539910 instance=ExtResource("3_rij2t")]
+position = Vector2(944, 412)
+
+[node name="AttackCollision" parent="GlowyAlien6/AttackArea" parent_id_path=PackedInt32Array(2083539910, 176814914) index="0" unique_id=562244832]
+shape = SubResource("CircleShape2D_xhcmu")
+
+[editable path="GlowyAlien5"]
+[editable path="GlowyAlien6"]

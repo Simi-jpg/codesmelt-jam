@@ -4,12 +4,22 @@
 [ext_resource type="Texture2D" uid="uid://b8mcp0hnp5lpt" path="res://sprites/potions.png" id="2_vfb16"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yfwu3"]
-radius = 4.0
+radius = 14.035668
+
+[sub_resource type="Gradient" id="Gradient_xbgtl"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0cnue"]
+gradient = SubResource("Gradient_xbgtl")
+fill = 1
+fill_from = Vector2(0.5121528, 0.5086806)
+fill_to = Vector2(0.8871528, 0.1579861)
 
 [node name="HealthPotion" type="Area2D" unique_id=1564601153]
 script = ExtResource("1_xbgtl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1943725274]
+scale = Vector2(1.75, 1.7500002)
 texture = ExtResource("2_vfb16")
 region_enabled = true
 region_rect = Rect2(0, 0, 16.666687, 17.666672)
@@ -17,3 +27,8 @@ region_rect = Rect2(0, 0, 16.666687, 17.666672)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1850303962]
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_yfwu3")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=698463872]
+scale = Vector2(1.375, 1.375)
+color = Color(1, 0.18039216, 1, 1)
+texture = SubResource("GradientTexture2D_0cnue")
