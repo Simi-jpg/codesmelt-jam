@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health = $HealthComponent
 @onready var health_bar: ProgressBar = $HealthBar
-@export var attack_damage: int = 10
+@export var attack_damage: int = 40
 @onready var pivot: Node2D = $Pivot
 @onready var swing: Node2D = $Pivot/Swing
 @onready var sword: Sprite2D = $Pivot/Swing/Sword
@@ -67,13 +67,13 @@ func _physics_process(delta: float) -> void:
 	
  
 func _on_died():
-	print("DEAD")
+	get_tree().reload_current_scene()
 
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
 		if body.has_method("take_damage"):
-			body.take_damage(10)
+			body.take_damage(attack_damage)
 func take_damage(amount: int):
 	health.take_damage(amount)
 func attack() -> void:

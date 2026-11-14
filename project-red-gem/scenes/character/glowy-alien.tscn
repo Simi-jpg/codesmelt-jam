@@ -140,4 +140,7 @@ metadata/_custom_type_script = "uid://blq850lrjhjdq"
 [node name="AttackCollision" type="CollisionShape2D" parent="AttackArea" unique_id=562244832]
 shape = SubResource("CircleShape2D_ce72v")
 
+[node name="Node2D" type="Node2D" parent="." unique_id=240040924]
+
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

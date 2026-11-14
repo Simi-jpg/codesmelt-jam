@@ -66,7 +66,7 @@ func spawn_object() -> void:
 		obj.free()
 		return
 
-	get_tree().current_scene.add_child(obj)
+	get_tree().current_scene.add_child.call_deferred(obj)
 	obj.global_position = chosen_point.global_position
 
 	active_objects.append(obj)
