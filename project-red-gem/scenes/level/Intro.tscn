@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://dn42hfcvb3dt4"]
+
+[ext_resource type="Script" uid="uid://dfhehk55olm50" path="res://scripts/intro.gd" id="1_3xie7"]
+[ext_resource type="Texture2D" uid="uid://ctk03wgconhb0" path="res://sprites/BG.png" id="1_o1qp6"]
+[ext_resource type="Texture2D" uid="uid://j2bacsry8ql7" path="res://sprites/planet.png" id="2_3xie7"]
+[ext_resource type="Texture2D" uid="uid://b71mrhp7eciu5" path="res://sprites/Nairan - Battlecruiser - Base.png" id="3_y2thm"]
+[ext_resource type="Texture2D" uid="uid://b8ugvi5d5yaql" path="res://sprites/player_b_m.png" id="4_yjpcn"]
+[ext_resource type="AudioStream" uid="uid://bh3edarqwsqhf" path="res://sprites/audio/intro.mp3" id="5_i8if8"]
+
+[node name="Intro" type="Control" unique_id=624197189]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3xie7")
+
+[node name="Background" type="TextureRect" parent="." unique_id=302898291]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_o1qp6")
+stretch_mode = 6
+
+[node name="Planet" type="TextureRect" parent="." unique_id=1732264271]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -4.0
+offset_right = 226.0
+offset_bottom = 194.0
+texture = ExtResource("2_3xie7")
+expand_mode = 2
+
+[node name="AlienShip" type="TextureRect" parent="." unique_id=923355118]
+layout_mode = 0
+offset_left = 760.0
+offset_top = -42.0
+offset_right = 1239.0
+offset_bottom = 509.0
+texture = ExtResource("3_y2thm")
+
+[node name="PlayerShip" type="TextureRect" parent="." unique_id=1702349250]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 483.0
+offset_right = 171.0
+offset_bottom = 628.0
+texture = ExtResource("4_yjpcn")
+
+[node name="StoryLine" type="Label" parent="." unique_id=1520835556]
+layout_mode = 0
+offset_left = 325.0
+offset_top = 522.0
+offset_right = 661.0
+offset_bottom = 623.0
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="StartGame" type="Label" parent="." unique_id=1445252148]
+visible = false
+layout_mode = 0
+offset_left = 381.0
+offset_top = 235.0
+offset_right = 757.0
+offset_bottom = 344.0
+theme_override_colors/font_color = Color(0.79607844, 0.5568628, 0.043137256, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 31
+text = "Press Enter to board ship"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="BG Music" type="AudioStreamPlayer2D" parent="." unique_id=1947157609]
+stream = ExtResource("5_i8if8")
+volume_db = 10.0
+autoplay = true
+parameters/looping = true
