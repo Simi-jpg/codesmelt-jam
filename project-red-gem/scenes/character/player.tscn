@@ -3,6 +3,13 @@
 [ext_resource type="Script" uid="uid://1svp5tdrg8ci" path="res://scripts/player.gd" id="1_tum32"]
 [ext_resource type="Texture2D" uid="uid://bsfr3m68usbip" path="res://sprites/tiny-pilot.png" id="1_vt0b6"]
 [ext_resource type="Script" uid="uid://blq850lrjhjdq" path="res://scripts/health_component.gd" id="3_0vjlc"]
+[ext_resource type="Texture2D" uid="uid://bu2qo6ruj6p4b" path="res://sprites/weapons/05_energy_sword.png" id="3_1y732"]
+
+[sub_resource type="GDScript" id="GDScript_bnvp8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bnvp8"]
+radius = 5.0
+height = 38.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xub24"]
 atlas = ExtResource("1_vt0b6")
@@ -138,6 +145,23 @@ radius = 32.01562
 z_index = 5
 script = ExtResource("1_tum32")
 
+[node name="Pivot" type="Node2D" parent="." unique_id=934615098]
+script = SubResource("GDScript_bnvp8")
+
+[node name="Swing" type="Node2D" parent="Pivot" unique_id=886109586]
+
+[node name="Sword" type="Sprite2D" parent="Pivot/Swing" unique_id=1407610935]
+position = Vector2(28, 0)
+texture = ExtResource("3_1y732")
+
+[node name="AttackArea" type="Area2D" parent="Pivot/Swing/Sword" unique_id=981830259]
+position = Vector2(-28, 0)
+
+[node name="AttackCollision" type="CollisionShape2D" parent="Pivot/Swing/Sword/AttackArea" unique_id=2140938529]
+position = Vector2(35, -1)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_bnvp8")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2063649387]
 position = Vector2(-1, -3)
 sprite_frames = SubResource("SpriteFrames_1mg7i")
@@ -162,10 +186,5 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_bnvp8")
 value = 18.32
 show_percentage = false
 
-[node name="AttackArea" type="Area2D" parent="." unique_id=981830259]
-
-[node name="AttackCollision" type="CollisionShape2D" parent="AttackArea" unique_id=2140938529]
-shape = SubResource("CircleShape2D_0cnue")
-
-[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
-[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
+[connection signal="body_entered" from="Pivot/Swing/Sword/AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="Pivot/Swing/Sword/AttackArea" to="." method="_on_attack_area_body_exited"]
