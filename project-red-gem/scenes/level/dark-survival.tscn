@@ -452,13 +452,6 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 25
 text = "Alarm disabling: "
 
-[node name="TransitionLabel" type="Label" parent="CanvasLayer" unique_id=520385744]
-offset_left = 501.0
-offset_top = 356.0
-offset_right = 718.0
-offset_bottom = 379.0
-text = "Press M to enter the cockpit"
-
 [connection signal="body_entered" from="LockdownTerminal/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="LockdownTerminal/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
