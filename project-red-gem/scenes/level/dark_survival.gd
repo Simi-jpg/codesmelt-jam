@@ -7,6 +7,7 @@ var in_range = false
 @onready var enemy_spawner: Node2D = $EnemySpawner
 var alarm_disabled = false
 @onready var timer: Timer = $Timer
+@onready var lockdown: Label = $CanvasLayer/Lockdown
 
 func _process(delta: float) -> void:
 	countdown.text = "Alarm disabling: " + str (int(timer.time_left))
@@ -15,6 +16,7 @@ func _process(delta: float) -> void:
 func _input(event):
 	if Input.is_key_pressed(KEY_R):
 		start_timer()
+		lockdown.visible = false
 	if Input.is_key_pressed(KEY_M) and alarm_disabled:
 		get_tree().change_scene_to_file("res://scenes/level/cockpit.tscn")
 

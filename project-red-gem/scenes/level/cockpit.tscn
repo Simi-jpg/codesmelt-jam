@@ -279,8 +279,6 @@ occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_6y26k")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0cnue"]
-
 [sub_resource type="Gradient" id="Gradient_xhcmu"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
@@ -289,6 +287,9 @@ gradient = SubResource("Gradient_xhcmu")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.859375, 0.13368055)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0cnue"]
+size = Vector2(156, 20)
 
 [node name="Cockpit" type="Node2D" unique_id=1742219981]
 script = ExtResource("1_4vo8g")
@@ -306,12 +307,6 @@ position = Vector2(224.00002, 41.000008)
 scale = Vector2(1.4531235, 1.4531235)
 texture = ExtResource("4_l1iew")
 
-[node name="Area2D" type="Area2D" parent="HologramTable" unique_id=1222201810]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HologramTable/Area2D" unique_id=602005746]
-position = Vector2(-1.0500684e-05, 23.397871)
-shape = SubResource("WorldBoundaryShape2D_0cnue")
-
 [node name="CommunicationsAntenna" type="Sprite2D" parent="." unique_id=877614429]
 position = Vector2(157.00002, 39)
 scale = Vector2(1.375, 1.375)
@@ -327,7 +322,7 @@ position = Vector2(293, 80)
 texture = ExtResource("7_4vo8g")
 
 [node name="Player" parent="." unique_id=424066194 instance=ExtResource("4_mtosd")]
-position = Vector2(228, 502)
+position = Vector2(214, 496)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1870972231]
 zoom = Vector2(1.5, 1.5)
@@ -358,4 +353,10 @@ position = Vector2(89, 243)
 [node name="GlowyAlien4" parent="." unique_id=1313306485 instance=ExtResource("9_mbjvw")]
 position = Vector2(401, 240)
 
-[connection signal="body_entered" from="HologramTable/Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="Area2D" type="Area2D" parent="." unique_id=1004141725]
+position = Vector2(227, 90)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1497271847]
+shape = SubResource("RectangleShape2D_0cnue")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
