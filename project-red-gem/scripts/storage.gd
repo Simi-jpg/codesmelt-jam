@@ -101,7 +101,7 @@ func _unhandled_key_input(event):
 			)
 
 	elif event.keycode == KEY_M and has_key:
-		get_tree().change_scene_to_file("res://scenes/level/kitchen.tscn")
+		get_tree().change_scene_to_file("res://scenes/level/dark.tscn")
 
 
 func _on_key_interaction_area_body_entered(body: Node2D) -> void:

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Project Red Gem"
-run/main_scene="uid://bglp4gvv15ynb"
+run/main_scene="uid://dn42hfcvb3dt4"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
