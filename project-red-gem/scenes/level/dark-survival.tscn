@@ -416,7 +416,7 @@ texture = ExtResource("9_5aaoj")
 position = Vector2(1049, 545)
 
 [node name="Timer" type="Timer" parent="." unique_id=593182452]
-wait_time = 60.0
+wait_time = 30.0
 one_shot = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1393503602]
@@ -435,6 +435,22 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Press r to disable lockdown"
+
+[node name="Countdown" type="Label" parent="CanvasLayer" unique_id=1971485242]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 182.0
+offset_right = 79.0
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Alarm disabling: "
 
 [connection signal="body_entered" from="LockdownTerminal/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="LockdownTerminal/Area2D" to="." method="_on_area_2d_body_exited"]
