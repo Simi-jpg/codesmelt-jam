@@ -4,7 +4,10 @@
 [ext_resource type="Script" uid="uid://cdlg3vhwflx2u" path="res://scripts/kitchen.gd" id="1_nggrk"]
 [ext_resource type="Texture2D" uid="uid://ktakeyo8avfq" path="res://tilesets/cozy-space-interiors-tileset.png" id="2_5f6wb"]
 [ext_resource type="Texture2D" uid="uid://iq44r7inac43" path="res://tilesets/orbital_oupost_tileset.png" id="2_gn54h"]
+[ext_resource type="PackedScene" uid="uid://b4m4lf27q2ug2" path="res://scenes/items/spawner.tscn" id="2_uthxf"]
 [ext_resource type="PackedScene" uid="uid://cqbe0fh0bw1st" path="res://scenes/character/door.tscn" id="3_5f6wb"]
+[ext_resource type="PackedScene" uid="uid://bmfarogbqch1t" path="res://scenes/character/glowy-alien.tscn" id="3_fp2bs"]
+[ext_resource type="PackedScene" uid="uid://bl7bb10uwxj3o" path="res://scenes/items/health-potion.tscn" id="3_j7v7n"]
 [ext_resource type="PackedScene" uid="uid://cvwp2imupsuw7" path="res://scenes/character/fridge.tscn" id="4_sd537"]
 [ext_resource type="Texture2D" uid="uid://bsh4r2822i2tu" path="res://sprites/kitchen-furniture/chest drawer.png" id="6_550ae"]
 [ext_resource type="Texture2D" uid="uid://bpxpwkjhp8435" path="res://sprites/kitchen-furniture/counter.png" id="7_rxn7h"]
@@ -376,8 +379,28 @@ size = Vector2(37, 62)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4hrg"]
 size = Vector2(50, 109)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_j7v7n"]
+radius = 125.035995
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fp2bs"]
+radius = 140.43147
+
 [node name="Kitchen" type="Node2D" unique_id=1439116752]
 script = ExtResource("1_nggrk")
+
+[node name="potion" parent="." unique_id=17235217 instance=ExtResource("2_uthxf")]
+position = Vector2(246, 203)
+spawn_scene = ExtResource("3_j7v7n")
+spawn_interval = 40.0
+
+[node name="Marker2D" parent="potion/SpawnPoints" parent_id_path=PackedInt32Array(17235217, 2106555087) index="0" unique_id=1825563346]
+position = Vector2(451, 300)
+
+[node name="Marker2D2" parent="potion/SpawnPoints" parent_id_path=PackedInt32Array(17235217, 2106555087) index="1" unique_id=1579598227]
+position = Vector2(783, -27)
+
+[node name="Marker2D3" parent="potion/SpawnPoints" parent_id_path=PackedInt32Array(17235217, 2106555087) index="2" unique_id=817947077]
+position = Vector2(-78, 140)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=645693186]
 position = Vector2(18, 0)
@@ -520,7 +543,47 @@ limit_top = -20
 limit_right = 1170
 limit_bottom = 660
 
+[node name="GlowyAlien2" parent="." unique_id=368573226 instance=ExtResource("3_fp2bs")]
+position = Vector2(654, 316)
+
+[node name="AttackCollision" parent="GlowyAlien2/AttackArea" parent_id_path=PackedInt32Array(368573226, 176814914) index="0" unique_id=562244832]
+position = Vector2(17, -1)
+shape = SubResource("CircleShape2D_j7v7n")
+
+[node name="GlowyAlien" parent="." unique_id=506719437 instance=ExtResource("3_fp2bs")]
+position = Vector2(471, 348)
+
+[node name="GlowyAlien3" parent="." unique_id=2126142756 instance=ExtResource("3_fp2bs")]
+position = Vector2(279, 232)
+
+[node name="AttackCollision" parent="GlowyAlien3/AttackArea" parent_id_path=PackedInt32Array(2126142756, 176814914) index="0" unique_id=562244832]
+position = Vector2(-11, 40)
+shape = SubResource("CircleShape2D_fp2bs")
+
+[node name="aliens" parent="." unique_id=1311857829 instance=ExtResource("2_uthxf")]
+position = Vector2(-59, -101)
+spawn_scene = ExtResource("3_fp2bs")
+spawn_interval = 5.0
+max_active = 5
+
+[node name="Marker2D" parent="aliens/SpawnPoints" parent_id_path=PackedInt32Array(1311857829, 2106555087) index="0" unique_id=1825563346]
+position = Vector2(898, 647)
+
+[node name="Marker2D2" parent="aliens/SpawnPoints" parent_id_path=PackedInt32Array(1311857829, 2106555087) index="1" unique_id=1579598227]
+position = Vector2(155, 584)
+
+[node name="Marker2D3" parent="aliens/SpawnPoints" parent_id_path=PackedInt32Array(1311857829, 2106555087) index="2" unique_id=817947077]
+position = Vector2(796, 300)
+
+[node name="Marker2D4" type="Marker2D" parent="aliens/SpawnPoints" parent_id_path=PackedInt32Array(1311857829, 2106555087) index="3" unique_id=1049787647]
+position = Vector2(714, 534)
+
 [node name="Painting" type="Sprite2D" parent="." unique_id=986031284]
 position = Vector2(996, 16)
 scale = Vector2(2.1875, 0.81250006)
 texture = ExtResource("9_vynyg")
+
+[editable path="potion"]
+[editable path="GlowyAlien2"]
+[editable path="GlowyAlien3"]
+[editable path="aliens"]

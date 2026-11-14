@@ -7,6 +7,7 @@ signal key_collected_signal
 
 var key_available = false
 var key_collected = false
+var key_visible = false
 
 var player_near = false
 var opened = false
@@ -21,7 +22,7 @@ func _process(delta):
 		if not opened:
 			fridge_sprite.play("fridge_open")
 			opened = true
-
+			await get_tree().create_timer(1.0).timeout
 			key.visible = true
 			key_available = true
 
@@ -29,7 +30,7 @@ func _process(delta):
 
 			var tween = create_tween()
 			tween.tween_property(key, "position:y", key.position.y + 30, 0.5)
-	if key_available and not key_collected and Input.is_key_pressed(KEY_F):
+	if key_available and not key_collected and Input.is_key_pressed(KEY_R):
 		key_collected = true
 		key_available = false
 		key.visible = false
