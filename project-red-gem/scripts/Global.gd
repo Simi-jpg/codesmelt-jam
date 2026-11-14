@@ -14,6 +14,9 @@ func add_points(amount: int):
 	update_points_ui()
 func get_points():
 	return points
-
+func hide_label():
+	points_label.hide()
+func show_label():
+	points_label.show()
 func update_points_ui():
 	points_label.text = "Points: " + str(points)
