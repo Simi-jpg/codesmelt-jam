@@ -104,6 +104,9 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ce72v"]
+radius = 95.02105
+
 [node name="GlowyAlien" type="CharacterBody2D" unique_id=506719437 groups=["enemies"]]
 script = ExtResource("1_543gv")
 speed = 60.0
@@ -131,3 +134,10 @@ show_percentage = false
 [node name="HealthComponent" type="Node" parent="." unique_id=114413037]
 script = ExtResource("3_w5lni")
 metadata/_custom_type_script = "uid://blq850lrjhjdq"
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=176814914]
+
+[node name="AttackCollision" type="CollisionShape2D" parent="AttackArea" unique_id=562244832]
+shape = SubResource("CircleShape2D_ce72v")
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

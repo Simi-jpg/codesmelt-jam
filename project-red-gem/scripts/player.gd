@@ -10,13 +10,15 @@ extends CharacterBody2D
 @onready var pivot: Node2D = $Pivot
 @onready var swing: Node2D = $Pivot/Swing
 @onready var sword: Sprite2D = $Pivot/Swing/Sword
+@onready var attack_area: Area2D = $Pivot/Swing/Sword/AttackArea
 
 var attacking = false
 var last_direction: String = "down"
 
-var enemies_in_range: Array[Node2D] = []
+#var enemies_in_range: Array[Node2D] = []
 
 func _ready():
+	attack_area.monitoring = false
 	sword.visible = false
 	health.died.connect(_on_died)
 	health.health_changed.connect(_on_health_changed)
@@ -40,10 +42,6 @@ func _physics_process(delta: float) -> void:
 	)
 	if direction != Vector2.ZERO:
 		pivot.rotation = direction.angle()
-
-	if Input.is_action_just_pressed("ui_accept"):
-		health.take_damage(10)
-		health_bar.value = health.current_health
 	
 	if not attacking:
 		velocity = direction * speed
@@ -74,17 +72,14 @@ func _on_died():
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
-		enemies_in_range.append(body)
-
-func _on_attack_area_body_exited(body: Node2D) -> void:
-	if body.is_in_group("enemies"):
-		enemies_in_range.erase(body)
-
-
+		if body.has_method("take_damage"):
+			body.take_damage(10)
+func take_damage(amount: int):
+	health.take_damage(amount)
 func attack() -> void:
 	if attacking:
 		return
-	
+	attack_area.monitoring = true
 	attacking = true
 	sword.visible = true
 	var tween = create_tween()
@@ -98,15 +93,8 @@ func attack() -> void:
 		0.2
 	)
 	tween.tween_callback(func():
+		attack_area.monitoring = false
 		sword.visible = false
 		attacking = false
 		swing.rotation_degrees = 0
 		)
-	if enemies_in_range.is_empty():
-		return
-
-	var enemy = enemies_in_range[0]
-
-	if is_instance_valid(enemy):
-		if enemy.has_method("take_damage"):
-			enemy.take_damage(10)
