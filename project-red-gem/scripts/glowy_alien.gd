@@ -44,6 +44,7 @@ func take_damage(amount: int):
 
 func _on_died():
 	var tween = create_tween()
+	Global.add_points(10)
 	tween.tween_property(self, "scale", Vector2(1.3, 1.3), 0.15)
 	tween.tween_property(self, "scale", Vector2(0.0, 0.0), 0.2)
 

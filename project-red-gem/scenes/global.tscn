@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c8r5amhr2u005"]
+
+[ext_resource type="Script" uid="uid://d1mm805i0cgh2" path="res://scripts/Global.gd" id="1_4pk28"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4pk28"]
+bg_color = Color(0, 0, 0, 0.53333336)
+
+[node name="Global" type="CanvasLayer" unique_id=1635942687]
+script = ExtResource("1_4pk28")
+
+[node name="PointsLabel" type="Label" parent="." unique_id=1280565057]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = -72.0
+offset_right = -54.0
+offset_bottom = -34.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_4pk28")
+text = "Points: 0"
+horizontal_alignment = 1
